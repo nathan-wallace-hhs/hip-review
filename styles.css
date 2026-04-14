@@ -197,10 +197,14 @@ h2 {
 }
 
 .report-item:hover,
-.report-item.active {
+.report-item:focus-within {
   transform: translateY(-2px);
   border-color: var(--line-strong);
   box-shadow: 0 10px 26px rgba(6, 13, 31, 0.44);
+}
+
+.report-item-actions {
+  margin-top: 0.6rem;
 }
 
 .badge {
@@ -337,6 +341,10 @@ button {
 .link-button[aria-disabled="true"] {
   pointer-events: none;
   opacity: 0.55;
+}
+
+.viewer-note p {
+  margin-bottom: 0;
 }
 
 .report-actions {
