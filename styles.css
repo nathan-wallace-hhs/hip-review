@@ -187,10 +187,6 @@ h2 {
   box-shadow: 0 8px 20px rgba(20, 48, 80, 0.12);
 }
 
-.report-item-actions {
-  margin-top: 0.6rem;
-}
-
 .badge {
   display: inline-block;
   border-radius: 999px;
