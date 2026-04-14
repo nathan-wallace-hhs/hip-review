@@ -369,3 +369,24 @@ button:hover,
     align-items: flex-start;
   }
 }
+
+.prompt-form {
+  margin-top: 0.4rem;
+}
+
+.prompt-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+}
+
+.prompt-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+}
+
+#filledPromptText {
+  margin-top: 0.4rem;
+}

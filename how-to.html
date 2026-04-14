@@ -33,6 +33,53 @@
       </section>
 
       <section class="panel guide-panel">
+        <h2>Prompt Input Helper</h2>
+        <p>Fill in the key inputs below, then generate a copy-ready prompt with placeholders replaced.</p>
+        <form id="promptFillForm" class="prompt-form" autocomplete="on">
+          <div class="prompt-form-grid">
+            <div>
+              <label for="fieldPageUrl">Page URL</label>
+              <input id="fieldPageUrl" name="page_url" type="url" placeholder="https://www.example.gov/page" />
+            </div>
+            <div>
+              <label for="fieldPageTitle">Page title / purpose</label>
+              <input id="fieldPageTitle" name="page_title_and_stated_purpose" type="text" placeholder="Benefits enrollment overview" />
+            </div>
+            <div>
+              <label for="fieldUserTasks">Primary user task(s)</label>
+              <input id="fieldUserTasks" name="top_1_to_3_user_jobs" type="text" placeholder="Check eligibility; submit application" />
+            </div>
+            <div>
+              <label for="fieldGoal">Primary business/agency goal</label>
+              <input id="fieldGoal" name="conversion_or_outcome" type="text" placeholder="Increase completed applications" />
+            </div>
+            <div>
+              <label for="fieldDate">Audit date</label>
+              <input id="fieldDate" name="date" type="date" />
+            </div>
+            <div>
+              <label for="fieldReviewer">Reviewer</label>
+              <input id="fieldReviewer" name="reviewer" type="text" placeholder="Firstname Lastname" />
+            </div>
+            <div>
+              <label for="fieldAuditNumber">HIP number (1-50)</label>
+              <input id="fieldAuditNumber" name="hip_number" type="number" min="1" max="50" placeholder="12" />
+            </div>
+            <div>
+              <label for="fieldPageShortTitle">Page title (for output header)</label>
+              <input id="fieldPageShortTitle" name="page_title" type="text" placeholder="Benefits enrollment" />
+            </div>
+          </div>
+          <div class="prompt-form-actions">
+            <button id="generatePromptBtn" type="button">Generate Filled Prompt</button>
+            <button id="copyFilledPromptBtn" type="button">Copy Filled Prompt</button>
+          </div>
+        </form>
+        <p id="fillStatus" class="muted" aria-live="polite"></p>
+        <textarea id="filledPromptText" class="prompt-text" readonly placeholder="Your filled prompt appears here after generation."></textarea>
+      </section>
+
+      <section class="panel guide-panel">
         <h2>Inputs you need before running the prompt</h2>
         <ul>
           <li><strong>Page details:</strong> URL, title/purpose, user tasks, agency goal, audit date, reviewer, and audit ID.</li>
