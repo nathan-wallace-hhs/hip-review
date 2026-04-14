@@ -245,16 +245,23 @@ function renderInsights() {
 }
 
 function renderList() {
+  if (!state.filtered.length) {
+    reportListEl.innerHTML = '<li class="report-item"><p class="muted">No reports match your filters.</p></li>';
+    return;
+  }
+
   reportListEl.innerHTML = state.filtered
     .map((r) => {
       return `
-        <li class="report-item">
-          <div><strong>${escapeHtml(r.title)}</strong></div>
-          <div class="muted">${escapeHtml(r.date)} • ${escapeHtml(r.type)}</div>
-          <div>${r.tags.map((tag) => `<span class="badge">${escapeHtml(tag)}</span>`).join("")}</div>
-          <div class="report-item-actions">
-            <a class="link-button" href="report.html?id=${encodeURIComponent(r.id)}">Open report</a>
-          </div>
+        <li>
+          <a class="report-item-link" href="report.html?id=${encodeURIComponent(r.id)}" aria-label="Open ${escapeHtml(r.title)} report">
+            <article class="report-item">
+              <div><strong>${escapeHtml(r.title)}</strong></div>
+              <div class="muted">${escapeHtml(r.date)} • ${escapeHtml(r.type)}</div>
+              <p class="muted">${escapeHtml(r.summary)}</p>
+              <div>${r.tags.map((tag) => `<span class="badge">${escapeHtml(tag)}</span>`).join("")}</div>
+            </article>
+          </a>
         </li>
       `;
     })

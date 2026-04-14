@@ -6,6 +6,7 @@ const metaEl = document.getElementById("reportMeta");
 const contentEl = document.getElementById("reportContent");
 const downloadMarkdownEl = document.getElementById("downloadMarkdown");
 const downloadJsonEl = document.getElementById("downloadJson");
+const printReportEl = document.getElementById("printReport");
 
 let report = null;
 
@@ -208,6 +209,10 @@ function wireDownloads(data) {
     const json = JSON.stringify(toJsonData(data), null, 2);
     downloadFile(`${safeName(data.title)}.json`, json, "application/json");
   });
+
+  printReportEl.addEventListener("click", () => {
+    window.print();
+  });
 }
 
 function toMarkdown(data) {
@@ -272,6 +277,7 @@ function renderError(message) {
   contentEl.innerHTML = `<p class="muted">${escapeHtml(message)}</p>`;
   downloadMarkdownEl.disabled = true;
   downloadJsonEl.disabled = true;
+  printReportEl.disabled = true;
 }
 
 function escapeHtml(value) {
