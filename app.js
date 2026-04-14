@@ -1,17 +1,14 @@
 const state = {
   reports: [],
   filtered: [],
-  selected: null,
 };
 
 const searchEl = document.getElementById("search");
 const typeFilterEl = document.getElementById("typeFilter");
 const tagFilterEl = document.getElementById("tagFilter");
 const reportListEl = document.getElementById("reportList");
-const previewEl = document.getElementById("preview");
 const metricsEl = document.getElementById("metrics");
 const insightsEl = document.getElementById("insights");
-const openReportPageEl = document.getElementById("openReportPage");
 
 async function boot() {
   try {
@@ -194,11 +191,6 @@ function render() {
   renderMetrics();
   renderInsights();
   renderList();
-
-  if (!state.selected || !state.filtered.some((r) => r.id === state.selected.id)) {
-    state.selected = state.filtered[0] || null;
-  }
-  renderPreview();
 }
 
 function renderMetrics() {
@@ -255,40 +247,24 @@ function renderInsights() {
 function renderList() {
   reportListEl.innerHTML = state.filtered
     .map((r) => {
-      const active = state.selected?.id === r.id ? "active" : "";
       return `
-        <li class="report-item ${active}" data-id="${escapeHtml(r.id)}">
+        <li class="report-item">
           <div><strong>${escapeHtml(r.title)}</strong></div>
           <div class="muted">${escapeHtml(r.date)} • ${escapeHtml(r.type)}</div>
           <div>${r.tags.map((tag) => `<span class="badge">${escapeHtml(tag)}</span>`).join("")}</div>
+          <div class="report-item-actions">
+            <a class="link-button" href="report.html?id=${encodeURIComponent(r.id)}">Open report</a>
+          </div>
         </li>
       `;
     })
     .join("");
 }
 
-function renderPreview() {
-  if (!state.selected) {
-    previewEl.classList.add("muted");
-    previewEl.textContent = "No report selected.";
-    openReportPageEl.setAttribute("href", "#");
-    openReportPageEl.setAttribute("aria-disabled", "true");
-    return;
-  }
-
-  previewEl.classList.remove("muted");
-  const r = state.selected;
-  openReportPageEl.setAttribute("href", `report.html?id=${encodeURIComponent(r.id)}`);
-  openReportPageEl.removeAttribute("aria-disabled");
-  previewEl.textContent = `${r.title}\n${r.date} • ${r.type}\nSource: ${r.source}\n\nSummary\n${r.summary}\n\nIssues\n${r.issues.join("\n") || "None"}\n\nFindings\n${r.findings.join("\n") || "None"}\n\nRaw\n${r.rawPreview}`;
-}
-
 function renderError(message) {
   metricsEl.innerHTML = "";
   insightsEl.innerHTML = `<p class="muted">${escapeHtml(message)}</p>`;
   reportListEl.innerHTML = "";
-  previewEl.classList.add("muted");
-  previewEl.textContent = message;
 }
 
 function average(values) {
@@ -312,14 +288,5 @@ function escapeHtml(value) {
 searchEl.addEventListener("input", applyFilters);
 typeFilterEl.addEventListener("change", applyFilters);
 tagFilterEl.addEventListener("change", applyFilters);
-
-reportListEl.addEventListener("click", (event) => {
-  const item = event.target.closest(".report-item");
-  if (!item) return;
-
-  const id = item.getAttribute("data-id");
-  state.selected = state.filtered.find((r) => r.id === id) || null;
-  render();
-});
 
 boot();
