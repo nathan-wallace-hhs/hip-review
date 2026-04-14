@@ -156,3 +156,47 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.topnav {
+  margin-top: 0.75rem;
+}
+
+.topnav a {
+  color: #dbe8ff;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.guide-main {
+  padding: 1rem;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.guide-panel {
+  margin-bottom: 1rem;
+}
+
+.prompt-text {
+  width: 100%;
+  min-height: 280px;
+  margin-top: 0.5rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.copy-btn {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.copy-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}

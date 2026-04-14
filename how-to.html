@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Use the HIP Review Tool</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>How to Use the HIP Review Tool</h1>
+      <p>Understand the prompt, required inputs, expected outputs, and copy the reusable LLM prompt.</p>
+    </header>
+
+    <main class="guide-main">
+      <section class="panel guide-panel">
+        <h2>What this tool does</h2>
+        <p>
+          The HIP Review tool helps teams review UX content audit reports in <code>reports/</code> and compare insights across
+          pages. Use the dashboard for analysis and use this guide when preparing consistent LLM-based audits.
+        </p>
+      </section>
+
+      <section class="panel guide-panel">
+        <h2>Prompt</h2>
+        <p>
+          Use the standard "UX Content Audit Prompt — High Impact Page Review" template when generating audits so findings are
+          structured consistently across the 50-page program.
+        </p>
+        <button id="copyPromptBtn" class="copy-btn" type="button">Copy LLM Prompt</button>
+        <p id="copyStatus" class="muted" aria-live="polite"></p>
+        <textarea id="promptText" class="prompt-text" readonly></textarea>
+      </section>
+
+      <section class="panel guide-panel">
+        <h2>Inputs you need before running the prompt</h2>
+        <ul>
+          <li><strong>Page details:</strong> URL, title/purpose, user tasks, agency goal, audit date, reviewer, and audit ID.</li>
+          <li><strong>Google Analytics (last 90 days):</strong> traffic, engagement, exits, scroll depth, referrers, devices, events, and search terms.</li>
+          <li><strong>Siteimprove:</strong> accessibility issues by severity, readability score, link/spelling/SEO/policy checks, and DCI sub-scores.</li>
+          <li><strong>Heatmaps:</strong> click behavior, scroll reach, rage/dead clicks, hotspots, and mobile/desktop differences.</li>
+          <li><strong>Optional:</strong> USWDS/M-24-08 notes, prior feedback, and Search Console queries.</li>
+        </ul>
+      </section>
+
+      <section class="panel guide-panel">
+        <h2>Outputs you should expect</h2>
+        <ul>
+          <li>A complete page audit with executive summary, quantified snapshot table, and six-dimensional findings.</li>
+          <li>Prioritized recommendations ranked by impact vs. effort with named owners.</li>
+          <li>Suggested before/after content revisions for the top changes.</li>
+          <li>Open questions and data gaps for anything that cannot be validated.</li>
+          <li>Appendix-ready references so each claim can be traced to data.</li>
+        </ul>
+      </section>
+
+      <section class="panel guide-panel">
+        <h2>How to use this with the dashboard</h2>
+        <ol>
+          <li>Run an audit with the copied prompt and your page-specific inputs.</li>
+          <li>Save the result in <code>reports/</code> as JSON or Markdown.</li>
+          <li>Add the report metadata to <code>reports/index.json</code>.</li>
+          <li>Open the dashboard to search, filter, and compare report trends.</li>
+        </ol>
+      </section>
+
+      <p><a href="index.html">← Back to dashboard</a></p>
+    </main>
+
+    <script src="how-to.js"></script>
+  </body>
+</html>
