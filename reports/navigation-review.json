@@ -1,0 +1,17 @@
+{
+  "title": "Navigation and IA Review",
+  "date": "2026-04-10",
+  "summary": "Primary navigation works but users struggle to locate support resources and secondary product pages.",
+  "score": 74,
+  "pagesReviewed": 12,
+  "tags": ["navigation", "ia", "accessibility"],
+  "issues": [
+    "Inconsistent menu labels",
+    "Support link hidden in footer",
+    "Low contrast in utility nav"
+  ],
+  "findings": [
+    "High drop-off from /products to /docs",
+    "Search usage spikes on help-oriented sessions"
+  ]
+}
