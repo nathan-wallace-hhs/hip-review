@@ -212,7 +212,7 @@ h2 {
 }
 
 .muted {
-  color: var(--ink-muted);
+  color: #4b5563;
 }
 
 .insight-list {
@@ -266,22 +266,35 @@ footer {
 }
 
 .copy-btn {
-  background: linear-gradient(180deg, #005ea2 0%, #004b84 100%);
-  border: 1px solid #003e70;
+  background: var(--brand);
+  border: 2px solid #003e70;
   color: #fff;
   border-radius: 10px;
-  padding: 0.5rem 0.82rem;
+  min-height: 44px;
+  padding: 0.56rem 0.95rem;
   cursor: pointer;
   font-weight: 700;
+  line-height: 1.2;
+  transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
 }
 
 .copy-btn:hover {
-  filter: brightness(1.05);
+  background: #004b84;
+  border-color: #00345f;
 }
 
 .copy-btn:disabled {
   cursor: not-allowed;
   opacity: 0.55;
+}
+
+.copy-btn:focus-visible,
+button:focus-visible,
+.link-button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  box-shadow: none;
 }
 
 @media (max-width: 880px) {
@@ -313,6 +326,8 @@ button {
   padding: 0.45rem 0.7rem;
   font-weight: 700;
   cursor: pointer;
+  min-height: 44px;
+  line-height: 1.2;
 }
 
 button:hover,
