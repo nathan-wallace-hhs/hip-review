@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Insight Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Report Insight Dashboard</h1>
+      <p>Analyze JSON and Markdown reports from the <code>reports/</code> directory.</p>
+    </header>
+
+    <main>
+      <section class="panel controls">
+        <div>
+          <label for="search">Search</label>
+          <input id="search" type="text" placeholder="Title, issue, tag, finding..." />
+        </div>
+        <div>
+          <label for="typeFilter">Type</label>
+          <select id="typeFilter">
+            <option value="all">All</option>
+            <option value="json">JSON</option>
+            <option value="markdown">Markdown</option>
+          </select>
+        </div>
+        <div>
+          <label for="tagFilter">Tag</label>
+          <select id="tagFilter">
+            <option value="all">All tags</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="grid metrics" id="metrics"></section>
+
+      <section class="grid details">
+        <article class="panel" id="recentPanel">
+          <h2>Recent Reports</h2>
+          <ul id="reportList" class="report-list"></ul>
+        </article>
+
+        <article class="panel" id="insightPanel">
+          <h2>Insights</h2>
+          <div id="insights"></div>
+        </article>
+      </section>
+
+      <section class="panel viewer">
+        <h2>Report Preview</h2>
+        <article id="preview" class="preview muted">Select a report to inspect details.</article>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Add files to <code>reports/</code> and list them in
+        <code>reports/index.json</code> to include them in the dashboard.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

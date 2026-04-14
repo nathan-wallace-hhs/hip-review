@@ -1,0 +1,18 @@
+{
+  "reports": [
+    {
+      "file": "reports/navigation-review.json",
+      "type": "json",
+      "title": "Navigation and IA Review",
+      "date": "2026-04-10",
+      "tags": ["navigation", "ia", "accessibility"]
+    },
+    {
+      "file": "reports/homepage-review.md",
+      "type": "markdown",
+      "title": "Homepage Prompt Review",
+      "date": "2026-04-12",
+      "tags": ["homepage", "content", "conversion"]
+    }
+  ]
+}
