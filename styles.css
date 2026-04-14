@@ -308,3 +308,55 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.viewer-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.viewer-heading h2 {
+  margin-bottom: 0;
+}
+
+.link-button,
+button {
+  display: inline-block;
+  border: 1px solid var(--line-strong);
+  background: rgba(105, 150, 255, 0.15);
+  color: #e7f0ff;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 0.45rem 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.link-button[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.report-content .report-section + .report-section {
+  margin-top: 1.1rem;
+}
+
+.report-content h2 {
+  margin-bottom: 0.55rem;
+}
+
+@media (max-width: 900px) {
+  .viewer-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -11,6 +11,7 @@ const reportListEl = document.getElementById("reportList");
 const previewEl = document.getElementById("preview");
 const metricsEl = document.getElementById("metrics");
 const insightsEl = document.getElementById("insights");
+const openReportPageEl = document.getElementById("openReportPage");
 
 async function boot() {
   try {
@@ -270,11 +271,15 @@ function renderPreview() {
   if (!state.selected) {
     previewEl.classList.add("muted");
     previewEl.textContent = "No report selected.";
+    openReportPageEl.setAttribute("href", "#");
+    openReportPageEl.setAttribute("aria-disabled", "true");
     return;
   }
 
   previewEl.classList.remove("muted");
   const r = state.selected;
+  openReportPageEl.setAttribute("href", `report.html?id=${encodeURIComponent(r.id)}`);
+  openReportPageEl.removeAttribute("aria-disabled");
   previewEl.textContent = `${r.title}\n${r.date} • ${r.type}\nSource: ${r.source}\n\nSummary\n${r.summary}\n\nIssues\n${r.issues.join("\n") || "None"}\n\nFindings\n${r.findings.join("\n") || "None"}\n\nRaw\n${r.rawPreview}`;
 }
 
