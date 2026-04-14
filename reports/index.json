@@ -5,14 +5,33 @@
       "type": "json",
       "title": "Navigation and IA Review",
       "date": "2026-04-10",
-      "tags": ["navigation", "ia", "accessibility"]
+      "tags": [
+        "navigation",
+        "ia",
+        "accessibility"
+      ]
     },
     {
       "file": "reports/homepage-review.md",
       "type": "markdown",
       "title": "Homepage Prompt Review",
       "date": "2026-04-12",
-      "tags": ["homepage", "content", "conversion"]
+      "tags": [
+        "homepage",
+        "content",
+        "conversion"
+      ]
+    },
+    {
+      "file": "reports/mock-report.json",
+      "type": "json",
+      "title": "Mock QA Report",
+      "date": "2026-04-14",
+      "tags": [
+        "mock",
+        "testing",
+        "qa"
+      ]
     }
   ]
 }

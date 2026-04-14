@@ -1,0 +1,16 @@
+{
+  "title": "Mock QA Report",
+  "date": "2026-04-14",
+  "summary": "Synthetic report fixture used for UI and filtering tests.",
+  "score": 88,
+  "pagesReviewed": 5,
+  "tags": ["mock", "testing", "qa"],
+  "issues": [
+    "Example issue for assertion checks",
+    "Secondary mock issue for list rendering"
+  ],
+  "findings": [
+    "Mock finding verifies summary aggregation",
+    "Mock finding verifies search indexing"
+  ]
+}
